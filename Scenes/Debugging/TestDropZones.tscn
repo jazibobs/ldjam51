@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/DragDrop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Dropzone.tscn" type="PackedScene" id=2]
+
+[node name="TestDropZones" type="Node2D"]
+position = Vector2( 43, 37 )
+
+[node name="Dropzone" parent="." instance=ExtResource( 2 )]
+position = Vector2( 132, 32 )
+
+[node name="Dropzone2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 181 )
+
+[node name="Dropzone3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 200, 174 )
+
+[node name="DragDrop" parent="." instance=ExtResource( 1 )]
