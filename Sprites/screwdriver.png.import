@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_texture.png-d65b13900e1f76aefbb1caf182d4de16.stex"
+path="res://.import/screwdriver.png-7d0736919dc82164e0384d2148201c7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/light_texture.png"
-dest_files=[ "res://.import/light_texture.png-d65b13900e1f76aefbb1caf182d4de16.stex" ]
+source_file="res://Sprites/screwdriver.png"
+dest_files=[ "res://.import/screwdriver.png-7d0736919dc82164e0384d2148201c7a.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

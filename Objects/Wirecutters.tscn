@@ -4,12 +4,10 @@
 [ext_resource path="res://Scripts/DragDrop.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 64, 0, 64, 64 )
 
@@ -21,8 +19,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id=8]
+height = 32.0
 
 [node name="Wirecutters" type="Node2D"]
 script = ExtResource( 2 )
@@ -35,6 +33,7 @@ frame = 1
 [node name="Area2D" type="Area2D" parent="Sprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
-shape = SubResource( 4 )
+position = Vector2( 3.8147e-06, 1 )
+shape = SubResource( 8 )
 
 [connection signal="input_event" from="Sprite/Area2D" to="." method="_on_Area2D_input_event"]

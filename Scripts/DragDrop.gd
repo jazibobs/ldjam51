@@ -17,11 +17,13 @@ func _physics_process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 		look_at(get_global_mouse_position())
-		get_child(0).playing = true
+		if get_child(0) is AnimatedSprite:
+			get_child(0).playing = true
 	else:
 		global_position = lerp(global_position, rest_point, 10 * delta)
 		rotation = lerp_angle(rotation, 0, 10 * delta)
-		get_child(0).playing = false
+		if get_child(0) is AnimatedSprite:
+			get_child(0).playing = false
 
 func _input(event):
 	if event is InputEventMouseButton:
