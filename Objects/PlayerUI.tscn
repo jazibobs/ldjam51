@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/PlayerUI.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/button.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/button_active.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/button_hover.png" type="Texture" id=4]
+
+[node name="PlayerUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 256.0
+margin_bottom = 224.0
+color = Color( 0, 0, 0, 0.839216 )
+
+[node name="Before" type="Control" parent="."]
+margin_right = 256.0
+margin_bottom = 224.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Before"]
+margin_right = 256.0
+margin_bottom = 224.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Before/CenterContainer"]
+margin_left = 78.0
+margin_top = 59.0
+margin_right = 178.0
+margin_bottom = 165.0
+alignment = 1
+
+[node name="LevelName" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 100, 30 )
+
+[node name="LevelHint" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer"]
+margin_top = 38.0
+margin_right = 100.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 100, 30 )
+
+[node name="TextureButton" type="TextureButton" parent="Before/CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 100.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+
+[node name="LevelStart" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer/TextureButton"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 107.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 30 )
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+text = "Begin"
+
+[connection signal="pressed" from="Before/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]

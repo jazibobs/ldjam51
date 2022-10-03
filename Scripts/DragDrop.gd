@@ -2,12 +2,12 @@ extends Node2D
 
 var selected = false
 var rest_point
-var rest_nodes = []
+var rest_node
 
 func _ready():
-	rest_nodes = get_tree().get_nodes_in_group("zone")
-	rest_point = rest_nodes[0].global_position 
-	rest_nodes[0].select()
+	rest_node = get_child(1)
+	rest_point = rest_node.global_position 
+	rest_node.select()
 
 func _on_Area2D_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("Click"):
@@ -29,10 +29,5 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			selected = false
-			var shortest_dist = 75
-			for child in rest_nodes:
-				var distance = global_position.distance_to(child.global_position)
-				if distance < shortest_dist:
-					child.select()
-					rest_point = child.global_position
-					shortest_dist = distance
+			rest_node.select()
+			
