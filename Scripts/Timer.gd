@@ -1,9 +1,15 @@
 extends AnimatedSprite
 
-func _ready():
-	frame = 10
+var counter = 10
 
+signal level_fail
 
-func _on_Timer_timeout():
-	if frame > 0:
-		frame = frame - 1
+func tick():
+	print(counter)
+		
+	if counter == 0:
+		emit_signal("level_fail")
+		counter = 10
+	else:
+		counter -= 1
+		$".".frame = counter 

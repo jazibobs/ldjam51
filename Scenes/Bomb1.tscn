@@ -46,3 +46,7 @@ position = Vector2( 217, 196 )
 [node name="PlayerUI" parent="." instance=ExtResource( 9 )]
 level_title = "Bomb 1"
 hint = "Cut it!"
+
+[node name="TenSeconds" type="Timer" parent="."]
+
+[connection signal="timeout" from="TenSeconds" to="." method="_on_TenSeconds_timeout"]

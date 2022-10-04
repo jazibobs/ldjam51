@@ -55,10 +55,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Timer" type="AnimatedSprite"]
+[node name="Timer" type="AnimatedSprite" groups=["ticking"]]
+process_priority = 1
 frames = SubResource( 12 )
 script = ExtResource( 2 )
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

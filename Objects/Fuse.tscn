@@ -40,18 +40,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Fuse" type="Node2D"]
+[node name="Fuse" type="Node2D" groups=["ticking"]]
 script = ExtResource( 2 )
-
-[node name="Timer" type="Timer" parent="."]
 
 [node name="FullFuse" type="Node2D" parent="."]
 
 [node name="FusePart" type="AnimatedSprite" parent="FullFuse"]
 frames = SubResource( 3 )
 
-[node name="Spark" type="AnimatedSprite" parent="."]
+[node name="Spark" type="AnimatedSprite" parent="." groups=["level_anim"]]
 frames = SubResource( 7 )
 frame = 2
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

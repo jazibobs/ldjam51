@@ -15,33 +15,36 @@ margin_right = 256.0
 margin_bottom = 224.0
 color = Color( 0, 0, 0, 0.839216 )
 
-[node name="Before" type="Control" parent="."]
+[node name="Overlay" type="Control" parent="."]
 margin_right = 256.0
 margin_bottom = 224.0
 
-[node name="CenterContainer" type="CenterContainer" parent="Before"]
+[node name="CenterContainer" type="CenterContainer" parent="Overlay"]
 margin_right = 256.0
 margin_bottom = 224.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Before/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/CenterContainer"]
 margin_left = 78.0
 margin_top = 59.0
 margin_right = 178.0
 margin_bottom = 165.0
 alignment = 1
 
-[node name="LevelName" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer"]
+[node name="LevelName" type="RichTextLabel" parent="Overlay/CenterContainer/VBoxContainer"]
 margin_right = 100.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 100, 30 )
+text = "Title"
 
-[node name="LevelHint" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer"]
+[node name="LevelHint" type="RichTextLabel" parent="Overlay/CenterContainer/VBoxContainer"]
 margin_top = 38.0
 margin_right = 100.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 100, 30 )
+text = "Hint"
 
-[node name="TextureButton" type="TextureButton" parent="Before/CenterContainer/VBoxContainer"]
+[node name="ResetButton" type="TextureButton" parent="Overlay/CenterContainer/VBoxContainer"]
+visible = false
 margin_top = 76.0
 margin_right = 100.0
 margin_bottom = 106.0
@@ -50,7 +53,27 @@ texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
 texture_focused = ExtResource( 4 )
 
-[node name="LevelStart" type="RichTextLabel" parent="Before/CenterContainer/VBoxContainer/TextureButton"]
+[node name="LevelReset" type="RichTextLabel" parent="Overlay/CenterContainer/VBoxContainer/ResetButton"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 7.0
+margin_top = 2.0
+margin_right = 107.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 30 )
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+text = "Retry"
+
+[node name="StartButton" type="TextureButton" parent="Overlay/CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 100.0
+margin_bottom = 106.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+
+[node name="LevelStart" type="RichTextLabel" parent="Overlay/CenterContainer/VBoxContainer/StartButton"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 7.0
 margin_top = 2.0
@@ -61,4 +84,5 @@ mouse_filter = 2
 mouse_default_cursor_shape = 2
 text = "Begin"
 
-[connection signal="pressed" from="Before/CenterContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Overlay/CenterContainer/VBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="Overlay/CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

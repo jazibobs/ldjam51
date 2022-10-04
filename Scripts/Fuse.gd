@@ -16,17 +16,27 @@ func _ready():
 		new_fuse = fuse_part.duplicate()
 		new_fuse.set_position(Vector2(x, y))
 		$FullFuse.add_child(new_fuse)
-		print_debug(x, y)
+		# print_debug(x, y)
 	$Spark.set_position(Vector2(x, y))
 
-func _on_Timer_timeout():
-	if countdown > 0:
+
+func tick():
+	print(countdown)
+	countdown -= 1
+	
+	if countdown == 0:
+		x = 80
+		y = -80
+		$Spark.visible = true
+		$Spark.set_position(Vector2(x, y))
+			
+		for fuse in $FullFuse.get_children():
+			fuse.frame = 0
+		
+		countdown = 10
+	else:
 		x -= 8
 		y += 8
-		countdown -= 1
 		var current_fuse = $FullFuse.get_child(countdown)
 		current_fuse.frame = 1
 		$Spark.set_position(Vector2(x, y))
-		
-	if countdown == 0:
-		$Spark.visible = false
